@@ -1,0 +1,26 @@
+server:
+  port: 3340
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka
+  instance:
+    instance-id: config-server
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/dwj1250/config-server.git
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: configAdmin
+    password: 12345678
+
+

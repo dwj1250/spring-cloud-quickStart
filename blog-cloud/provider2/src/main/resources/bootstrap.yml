@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: provider2
+  cloud:
+    config:
+    #配置中心服务器
+      uri: http://127.0.0.1:3340
+      #git hub 上的文件名，不要后缀
+      name: application
+      #分支
+      label: master
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: configAdmin
+    password: 12345678
+management:
+  endpoint:
+    bus-refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+      ##暴露以下信息
+        include: refresh,health,info
+#本例使用spring cloud配置中心功能，所以不用写application.yml而采用优先级更高的bootstrap
