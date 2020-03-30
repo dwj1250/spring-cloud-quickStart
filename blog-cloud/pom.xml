@@ -19,6 +19,7 @@
 		<module>provider2</module>
 		<module>configServer</module>
         <module>provider_copy_balanceTest</module>
+        <module>hystrix</module>
     </modules>
 
 	<properties>

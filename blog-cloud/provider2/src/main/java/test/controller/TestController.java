@@ -1,5 +1,6 @@
 package test.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -25,6 +26,7 @@ public class TestController {
     private static final String HELLO_SERVICE="/provider/hello";
 
     @GetMapping("/provider2/hello")
+    @HystrixCommand
     public String test(){
         RestTemplate restTemplate=new RestTemplate();
         List<String> list= client.getServices();
