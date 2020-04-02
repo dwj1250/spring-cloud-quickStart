@@ -26,7 +26,7 @@ public class TestController {
     private static final String HELLO_SERVICE="/provider/hello";
 
     @GetMapping("/provider2/hello")
-    @HystrixCommand
+    @HystrixCommand(fallbackMethod = "backUp")
     public String test(){
         RestTemplate restTemplate=new RestTemplate();
         List<String> list= client.getServices();
@@ -45,6 +45,10 @@ public class TestController {
     @GetMapping("/provider2/getMyName")
     public String getMyName(){
         return name;
+    }
+
+    public String backUp(){
+        return "the service doesn't work";
     }
 
 

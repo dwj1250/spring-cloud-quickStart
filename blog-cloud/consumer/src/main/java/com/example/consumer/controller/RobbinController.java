@@ -17,7 +17,7 @@ public class RobbinController {
 
     @GetMapping("/ribbon/hello")
     public String cunsumer(){
-        return restTemplate.getForObject("http://hello-first/provider/hello",String.class);
+        return restTemplate.getForObject("http://hello-second/provider2/hello",String.class);
     }
 
 }
